@@ -1,0 +1,66 @@
+<!doctype html>
+<head>
+	<title>distro game - main</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="cordova.js"></script>
+	<script src="jquery.min.js"></script>
+	<script src="jquery-1.10.2.js"></script>
+
+
+	<script type="text/javascript">
+
+		function getWindowSizes() {
+		  	var windowHeight = 0, windowWidth = 0;
+		  	if (typeof (window.innerWidth) == 'number') {
+		 	     windowHeight = window.innerHeight;
+		 	     windowWidth = window.innerWidth;
+
+			} else if (document.documentElement && (document.documentElement.clientWidth || document.documentElement.clientHeight)) {
+		 	     windowHeight = document.documentElement.clientHeight;
+		 	     windowWidth = document.documentElement.clientWidth;
+
+		    } else if (document.body && (document.body.clientWidth || document.body.clientHeight)) {
+		    	windowHeight = document.body.clientHeight;
+		     	windowWidth = document.body.clientWidth;
+		    }
+		  		return [windowWidth, windowHeight];
+			}
+
+		$(document).ready(function() {
+
+			var windowSize = getWindowSizes();
+			window.localStorage.setItem("width", JSON.stringify(windowSize[0]));
+			window.localStorage.setItem("height", JSON.stringify(windowSize[1]));
+			$("#newgame").click(function() {
+				window.location = 'game.html';
+			});
+			$("#highscores").click(function(){
+				window.location = 'scores.html';
+			});
+			$("#quit").click(function() {
+				navigator.app.exitApp();
+			});
+			$("#help").click(function() {
+				window.location = 'help.html';
+			});
+		});
+	</script>
+
+
+  </head>
+  <body>
+
+	    <nav class="clearfi">
+        <ul_class="clearfi">
+            <li><a><div id="newgame"><p><br></p><br></br><br></br></div></a></li>
+            <li><a><div id="highscores"><p><br></p><br></br><br></br></div></a></li>
+            <li><a><div id="quit"><p><br></p><br></br><br></br></div></a></li>
+            <li><a><div id="help"><p><br></p><br></br><br></br></div></a></li>
+        </ul>
+        </nav>
+
+
+
+  </body>
+</html>
